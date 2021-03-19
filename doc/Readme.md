@@ -42,5 +42,5 @@ Donations will help us maintain and improve this tool and other ones
 
 RTM Address  
 `RMQtyqvSphSGyD5cNN8s5AiBqCQTqsS2HM`  
-![](https://github.com/AngainorDev/VelociRaptor/raw/master/angainor-rtm.png)
+![](https://github.com/AngainorDev/VelociRaptor/raw/main/angainor-rtm.png)
 
