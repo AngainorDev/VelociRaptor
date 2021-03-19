@@ -4,6 +4,7 @@ The fastest way to get a Raptoreum address! HD wallet with Paper wallet generati
 
 Support for Stacy scheme as well as current coin type "200", see "options" button.
 
+![](https://github.com/AngainorDev/VelociRaptor/raw/main/velociraptor.jpg)
 
 ## Current state
 
