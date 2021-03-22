@@ -34,6 +34,7 @@ WIP - left over from previous work, to be done later on.
 
 ## Changelog
 
+- v0.2: Added new BIP44 chain code 10226, set BIP 44 as default derivation scheme 
 - v0.1: Initial commit, fully functional, coin type 200 and Stacy's scheme.
 
 ## Donation address

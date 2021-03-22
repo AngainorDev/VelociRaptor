@@ -21,8 +21,8 @@ Selectable wallet template, see the doc on how to submit your own templates to b
 
 ## Changelog
 
+- v0.2: Added new BIP44 chain code 10226, set BIP 44 as default derivation scheme 
 - v0.1: Initial commit, fully functional. 
-
 
 
 ## Donation address

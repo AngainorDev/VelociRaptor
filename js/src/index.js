@@ -108,12 +108,12 @@ function generate_addresses() {
     let path = ''
 
     const code200 = document.querySelector("#type200").checked
-    const codexxx = document.querySelector("#typeXXX").checked
+    const codexxx = document.querySelector("#type10226").checked
     const codestacy = document.querySelector("#typeStacy").checked
 
-    let chaincode = '200'
-    if (document.querySelector("#typeXXX").checked) {
-        chaincode = '222'
+    let chaincode = '10226'
+    if (document.querySelector("#type200").checked) {
+        chaincode = '200'
     }
     for (i=0; i<count; i++) {
         path = `m/44'/` + chaincode + `'/0'/0/` + i.toString()
