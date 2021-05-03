@@ -4,7 +4,7 @@ const bip39 = require("bip39")
 var hdkey = require('hdkey');
 var createHash = require('create-hash');
 var bs58check = require('bs58check');
-
+var wif = require('wif');
 
 import logo from './img/RTM_64.png'
 import logo2 from './img/RTM_64.png'
@@ -88,7 +88,8 @@ function privkey_to_address(privateKey) {
 
 
 function generate_paper() {
-    var privateKey = document.querySelector("#pk-input").value.trim()
+    const privateKey = document.querySelector("#pk-input").value.trim()
+    const privateKeyWIF = wif.encode(128, Buffer.from(privateKey, 'hex'), true)
     const paperCode =  document.querySelector("#pc-input").value.trim()
     if (privateKey=='' && paperCode=='') {
         alert("Fill in one of Private Key or Paper Code")
@@ -109,10 +110,10 @@ function generate_paper() {
 
     const address = privkey_to_address(Buffer.from(privateKey, 'hex'))
     //console.log(address)
-    const outMap= {"Private Key": privateKey, "Address": address}
+    const outMap= {"Private Key": privateKeyWIF, "Address": address}
     const wrapper = document.querySelector("#output")
     wrapper.innerHTML = mapToPaper(outMap)
-    let qr = new QRCode(document.getElementById("qrcode_private"), getQRConfig2(privateKey, logo2))
+    let qr = new QRCode(document.getElementById("qrcode_private"), getQRConfig2(privateKeyWIF, logo2))
     let qr2 = new QRCode(document.getElementById("qrcode_address"), getQRConfig(address, logo))
     const img = document.getElementById("paperbg")
     lazyLoadImage(document.querySelector("#wallet_template").value, "wallet", img);

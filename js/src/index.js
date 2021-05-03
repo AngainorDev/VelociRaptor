@@ -5,6 +5,7 @@ const QRCode = require('easyqrcodejs')
 var hdkey = require('hdkey');
 var createHash = require('create-hash');
 var bs58check = require('bs58check');
+var wif = require('wif');
 
 import logo from './img/RTM_70b.png'
 import i512 from './img/RTM_360.png'
@@ -38,6 +39,7 @@ function generate_options() {
 
 
 function getKeyRowWithQR(index, path, privateKey, publicKey, address, paperCode, tHeadClass='') {
+    const privateKeyWIF = wif.encode(128, Buffer.from(privateKey, 'hex'), true)
     return  `
         <div class="col-12">
           <table class="table" style="border: 1px solid #aaa;">
@@ -50,7 +52,8 @@ function getKeyRowWithQR(index, path, privateKey, publicKey, address, paperCode,
               <td>Address</td><td>${address}</td><td rowspan="3"  style="text-align:center; vertical-align:center"><div class="qr" id="qrcode_${index+1}"></div></td>
             </tr>
             <tr>
-              <td>Private key</td><td>${privateKey}</td>
+              <td>Private key (raw hex)<br/>Private key (WIF)</td>
+              <td>${privateKey}<br/>${privateKeyWIF}</td>
             </tr>
             <tr>
               <td>Public key</td><td><textarea class="form-control" >${publicKey}</textarea></td>
