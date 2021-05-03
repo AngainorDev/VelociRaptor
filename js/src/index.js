@@ -80,6 +80,30 @@ function pubkey_to_address(publicKey) {
 }
 
 
+function disable_submit() {
+    const btn=document.querySelector("#generate_addresses")
+    btn.classList.remove("btn-primary")
+    btn.classList.add("btn-secondary")
+    //console.log("Working...");
+    btn.innerHTML="Computing...";
+    btn.disabled=true
+    document.body.style.cursor = "progress";
+}
+
+function enable_submit() {
+    const btn=document.querySelector("#generate_addresses")
+    btn.disabled=false
+    btn.innerHTML="Get Adresses";
+    btn.classList.remove("btn-secondary")
+    btn.classList.add("btn-primary")
+    document.body.style.cursor = "default";
+}
+
+function wait_addresses() {
+    setTimeout(disable_submit, 50);
+    setTimeout(generate_addresses, 60);
+}
+
 function generate_addresses() {
     const mnemonic = document.querySelector("#BIP39-input").value.trim()
     const password = document.querySelector("#BIP39-pass").value.trim()
@@ -166,11 +190,12 @@ function generate_addresses() {
         config.text = ids[i-1]
         let t = new QRCode(document.getElementById("qrcode_" + i), config)
     }
+    setTimeout(enable_submit, 50);
 
 }
 
 document.querySelector("#generate_mnemonic12").addEventListener("click", generate_mnemonic12)
 document.querySelector("#generate_mnemonic24").addEventListener("click", generate_mnemonic24)
-document.querySelector("#generate_addresses").addEventListener("click", generate_addresses)
+document.querySelector("#generate_addresses").addEventListener("click", wait_addresses)
 document.querySelector("#generate_options").addEventListener("click", generate_options)
 

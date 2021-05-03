@@ -1,6 +1,6 @@
 {
   "name": "VelociRaptor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "RTM HD Paper wallet",
   "main": "index.js",
   "directories": {
